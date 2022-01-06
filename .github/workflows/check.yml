@@ -1,0 +1,21 @@
+name: 'Check'
+
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+    
+jobs:
+  check_repo:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Checkov GitHub Action
+      uses: bridgecrewio/checkov-action@v12.641.0
+      with:
+        directory: .
+        log_level: debug
