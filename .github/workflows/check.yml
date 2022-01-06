@@ -19,6 +19,8 @@ jobs:
       uses: bridgecrewio/checkov-action@master
       with:
         directory: .
+        output_format: sarif
+        quiet: true
         
     - run: tree
       if: always()
